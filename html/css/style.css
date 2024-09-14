@@ -1,0 +1,15 @@
+h1 {
+    color: #3bb8de;
+    font-size: 24px;
+    text-align: center;
+}
+p {
+    font-family: 'Times New Roman', Times, serif;
+    color: #ff500f;
+}
+.warna{
+    color: rgb(14, 82, 82);
+}
+.huruf-besar{
+    font-size: 10px;
+}
