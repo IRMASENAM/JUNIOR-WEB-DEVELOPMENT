@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Pendaftaran Beasiswa</title>
+</head>
+<body>
+    <h1>Hasil Pendaftaran Beasiswa</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Nomor HP</th>
+                <th>Semester</th>
+                <th>IPK</th>
+                <th>Pilihan Beasiswa</th>
+                <th>Upload Berkas</th>
+                <th>Status Ajuan</th>
+            </tr>
+        </thead>
+        <tbody id="result">
+            <!-- Hasil pendaftaran akan muncul di sini -->
+        </tbody>
+    </table>
+
+    <nav>
+        <a href="index.html">Kembali ke Halaman Utama</a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('get_results.php')
+                .then(response => response.json())
+                .then(data => {
+                    const resultTable = document.getElementById('result');
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.name}</td>
+                            <td>${item.email}</td>
+                            <td>${item.phone}</td>
+                            <td>${item.semester}</td>
+                            <td>${item.ipk}</td>
+                            <td>${item.beasiswa}</td>
+                            <td>${item.file}</td>
+                            <td>${item.status_ajuan}</td>
+                        `;
+                        resultTable.appendChild(row);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
